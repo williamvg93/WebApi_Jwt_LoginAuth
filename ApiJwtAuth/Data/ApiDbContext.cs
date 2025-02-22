@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiJwtAuth.Data
 {
-    public class ApiDbContext(DbContextOptions<ApiDbContext> options) : IdentityDbContext<User>(options)
+    public class ApiDbContext(DbContextOptions<ApiDbContext> options) : IdentityDbContext<AppUser>(options)
     {
     }
 }

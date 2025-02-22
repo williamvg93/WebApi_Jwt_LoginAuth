@@ -32,7 +32,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt => {
     opt.Password.RequireNonAlphanumeric = true;
     opt.Password.RequiredLength = 8;
     opt.Password.RequiredUniqueChars = 3; */
-});
+}).AddEntityFrameworkStores<ApiDbContext>().AddDefaultTokenProviders();
+
 
 // JWT Configuration
 builder.Services.AddAuthentication(opt => {
@@ -48,7 +49,6 @@ builder.Services.AddAuthentication(opt => {
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
-
     };
 });
 
