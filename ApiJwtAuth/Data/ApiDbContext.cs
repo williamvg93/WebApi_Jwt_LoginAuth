@@ -9,5 +9,6 @@ namespace ApiJwtAuth.Data
 {
     public class ApiDbContext(DbContextOptions<ApiDbContext> options) : IdentityDbContext<AppUser>(options)
     {
+        public virtual DbSet<Product> Products {get; set;}
     }
 }
